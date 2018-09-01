@@ -1,4 +1,6 @@
-baseURL = "http://example.org/"
+baseURL = "http://thefacelesspanda.netlify.io"
 languageCode = "en-us"
-title = "My New Hugo Site"
+title = "The Faceless Panda"
 theme = "ananke"
+pygmentsCodefences = true
+enableEmoji = true
