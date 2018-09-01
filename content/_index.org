@@ -1,0 +1,6 @@
+---
+title: "The Faceless Panda"
+featured_image: '/images/panda_banner.jpg'
+description: "The panda without a face"
+---
+The sun is out, the curtain is closed. Let's be a nerd.
