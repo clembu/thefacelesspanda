@@ -6,6 +6,7 @@ pygmentsCodefences = true
 enableEmoji = true
 
 [params]
+  favicon = "images/icon_32.png"
   description = "I am a panda without a face."
   twitter = "https://twitter.com/Oddwel"
   instagram = "https://www.instagram.com/thefacelesspanda"

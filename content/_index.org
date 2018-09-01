@@ -1,5 +1,4 @@
 ---
-title: "The Faceless Panda"
 featured_image: '/images/panda_banner.jpg'
 description: "The panda without a face"
 ---
