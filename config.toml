@@ -5,6 +5,10 @@ theme = "ananke"
 pygmentsCodefences = true
 enableEmoji = true
 
+MetaDataFormat = "yaml"
+DefaultContentLanguage = "en"
+enableRobotsTXT = true
+
 [params]
   favicon = "images/icon_32.png"
   description = "I am a panda without a face."
