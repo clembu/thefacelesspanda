@@ -1,0 +1,29 @@
+---
+title: "About this"
+description: "What exactly is it?"
+---
+*** The blog
+This blog will be home to whatever I find like spending time writing about.
+
+Sometimes things might be lengthy, sometimes it might be short.
+
+One day it could be a poem, the next a technical tutorial on setting up emacs, I don't know.
+
+#+BEGIN_SRC
+¯⁠\_( ◉ 3 ◉ )_/⁠¯
+#+END_SRC
+
+And that's the beauty of it.
+
+*** Me
+My name is Clément Busschaert,
+I'm a 24 years old French student in Computer Science.
+
+{{< figure src="/images/thinkme.jpg" title="Das me :D" >}}
+
+*** Some technical details
+The blog/site is hosted on [[https://www.netlify.com/][Netlify]].
+
+It is built using [[https://gohugo.io/][Hugo]].
+
+It is mostly written in [[http://spacemacs.org/][Spacemacs]] [[https://orgmode.org/][Org Mode]].
