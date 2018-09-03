@@ -1,0 +1,209 @@
+---
+title: "Kitty is cute and cool"
+date: 2018-09-03T02:35:12+02:00
+---
+
+I just spent some time cleaning up my terminal setup,
+so might as well talk about it here and ease up
+the research process for some people.
+
+*This is a bit long, so here's a TOC*
+
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#the-problem">The problem</a></li>
+<li><a href="#kitty">KITTY</a>
+<ul>
+<li><a href="#installation">Installation</a>
+<ul>
+<li><a href="#step-1-git-it">Step 1: git it</a></li>
+<li><a href="#step-2-make-it">Step 2: make it</a></li>
+<li><a href="#step-3-run-it">Step 3: run it</a></li>
+<li><a href="#step-4-cut-it-short">Step 4: cut it short</a></li>
+</ul>
+</li>
+<li><a href="#convenience">Convenience</a>
+<ul>
+<li><a href="#fullscreen-kitty">Fullscreen Kitty</a></li>
+<li><a href="#build-on-update">Build on update</a></li>
+</ul>
+</li>
+<li><a href="#customization">Customization</a></li>
+</ul>
+</li>
+</ul>
+
+** The problem
+
+ There always was a need since I've been working on Linux
+ to make the terminal as pretty as possible,
+ and as useable as possible.
+
+ I mean, the default terminal of some distributions are plain and simple,
+ with little to no visual customization, and very limited multitasking options:
+ most of the time you'd have to create new OS windows
+ to have several terminals running.
+
+ That's fine for a lot of people I met,
+ who often blind themselves into thinking they're okay with it,
+ before spending a good 4 seconds switching windows before saying
+ "ah, it's this one!"
+
+** [[https://sw.kovidgoyal.net/kitty/][KITTY]]
+   Kitty is a terminal emulator, much like [[https://invisible-island.net/xterm/][XTerm]] or [[https://www.kde.org/applications/system/konsole/][Konsole]].
+   What it does is provide a graphical window that sits on your desktop
+   next to your other windows like your web browser or your text editor
+   (if your text editor isn't running in the terminal.)
+
+   I'll let you judge for yourself whether you like what you see on the website,
+   but as far as terminal emulators go, it's by far my favorite.
+
+*** Installation
+
+    Kitty is open-source and available on [[https://github.com/kovidgoyal/kitty][GitHub]].
+    There's several installation methods, but the one that makes updating
+    easier is the one I'm using now and that I'll explain now.
+
+**** Step 1: git it
+
+     Kitty being on GitHub means one thing:
+     you can get the code and build it yourself.
+     Some pieces of software out there are a hassle to build,
+     because they require a bunch of third-parties or
+     are poorly prepared for user-building.
+     Kitty is simple:
+     it just needs python 3.
+
+     Now, we need to make sure we have python 3.
+     I am not explaining you how to do this,
+     because ~python3~ should be installed on most
+     Unix-like distributions now.
+
+     First actual step is to decide of a place for
+     the software to sit in.
+     I have a ~~/bin~ directory on my ~$PATH~ so
+     I'll use that as a home for it
+     and have it be in ~~/bin/kitty_bin~.
+     
+     Now the name of the directory is not important here,
+     and it's not decided by Kitty. I decided on this one because I figured
+     I'd want to create a ~~/bin/kitty~ script to launch it.
+
+     OK now I have a place for it, time to git it.
+
+     {{< gist facelesspanda b435f43bc0eab15a7fe15f9a4d8f4352 "kitty clone" >}}
+
+     This will cleanly download Kitty were we want it, in ~~/bin/kitty_bin~.
+
+     Now it should be obvious that these commands go into a terminal.
+     It's always funny to install a terminal emulator using a terminal,
+     but it's like using Microsoft Edge to download Chrome or Firefox,
+     it's just using the stock app to download a better one.
+     So fire up your default terminal emulator and clone that git.
+
+     +You can also decide to use the actual terminal in your other TTYs, using ~Ctrl+Alt+fX~.+
+
+**** Step 2: make it
+
+     Downloading it is not enough to have it work, though.
+     We have python3 scripts, but also native C code needing building.
+     Luckily if we go in there, we can just ~make~ it.
+
+     {{< gist facelesspanda b435f43bc0eab15a7fe15f9a4d8f4352 "kitty make" >}}
+
+     The terminal will barf stuff. Worry about it if you want,
+     but if nothing's red or screams ~ERROR~ you're good.
+
+**** Step 3: run it
+
+     Okay, now we're good, we can run the main python script.
+
+     Still in the ~kitty_bin~ directory, if you run
+
+     {{< gist facelesspanda b435f43bc0eab15a7fe15f9a4d8f4352 "kitty run" >}}
+
+     it should open a Kitty window.
+
+**** Step 4: cut it short
+
+    This is the moment where you go
+
+    #+BEGIN_QUOTE
+    Okay this is fine, but I don't want to open my stock emulator to launch my new emulator
+    #+END_QUOTE
+
+    And that is fine.
+
+    You're gonna want shortcuts.
+
+    This is where it becomes distribution-sensitive.
+    Your windows manager has a documentation,
+    you do the research and figure out how to create shortcuts.
+    If you have an even more specific setup with third party launchers and stuff,
+    it's even more different. I'll trust you know how to do this.
+
+    But what to set the shortcut to? ~python3 ~/bin/kitty_bin~ ?
+
+    Well, no. It's always a good idea to have your binaries on your ~$PATH~,
+    and to use those binaries when you need to.
+
+    So let's have a ~kitty~ binary that we can call whenever.
+    Plus, you'll see, it's *vital* for Kitty.
+
+    The way we do this is to create an executable ~kitty~ file in our ~$PATH~ somewhere.
+    Anywhere on the ~$PATH~. I chose my ~~/bin~ directory.
+
+    Here's the content of ~~/bin/kitty~.
+    
+    {{< gist facelesspanda b435f43bc0eab15a7fe15f9a4d8f4352 "kitty bin.py" >}}
+
+    Now we can just use the command ~kitty~ to launch our terminal emulator,
+    and use that in a shortcut.
+
+*** Convenience
+**** Fullscreen Kitty
+     Now, the thing is I don't like these small terminal windows
+     that open by default, on any emulator.
+
+     I always look for a way to open them in fullscreen.
+     Kitty doesn't have an "open in fullscreen" config option,
+     so I had to hack things a tad.
+
+     This is not widely known to most of the public because it's rarely used,
+     but there's a utility that lets you control your windows manager.
+     It's called [[https://linux.die.net/man/1/wmctrl][~wmctrl~]].
+
+     I create an executable on my ~$PATH~, next to my cute lil ~kitty~,
+     called ~big-kitty~ (or ~kitty-fullscreen~ if you want to be explicit),
+     and put this code in it:
+
+     {{< gist facelesspanda b435f43bc0eab15a7fe15f9a4d8f4352 "big-kitty.sh" >}}
+
+     And then I set my desktop manager to call this ~big-kitty~ whenever I press ~Super+T~.
+
+     And boom, auto-fullscreen.
+
+**** Build on update
+
+     The reason I cloned the git was to be able to easily update Kitty.
+     A few hours ago I updated it, and then relaunched it, but it didn't launch.
+     That was because I forgot to ~make~ it.
+
+     I knew I couldn't remember to do it every time,
+     so I decided that this time, I'll auto-build it on every update.
+
+     Cool things [[https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks][git hooks]] are a thing.
+
+     So there I went, creating a ~post-merge~ executable in my ~.git/hooks~.
+
+     {{< gist facelesspanda b435f43bc0eab15a7fe15f9a4d8f4352 "kitty auto-build" >}}
+
+     This /should/ do the trick.
+     I still have to pull an update to test it.
+
+*** Customization
+    
+    Kitty is highly customizable, and I'm not done finilazing the tuning of my setup,
+    so I shall come back with another post about that some time later.
+
+    In the meantime, you can check out my [[https://gist.github.com/facelesspanda/b435f43bc0eab15a7fe15f9a4d8f4352#file-kitty-conf][config file]] and [[https://gist.github.com/facelesspanda/b435f43bc0eab15a7fe15f9a4d8f4352#file-default-session][default session]] as examples.
