@@ -1,0 +1,157 @@
+---
+title: "I reinstalled Linux"
+date: 2018-09-26T10:05:00+02:00
+draft: true
+---
+
+* It's a new year
+
+  {{< figure src="/images/unsplash/chinh-le-duc-496818-unsplash.jpg"
+  title="Celebrating the new sol-earth revolution"
+  attr="Photo by Chinh Le Duc on Unsplash"
+  attrlink="https://unsplash.com/photos/S9XD0IZ6iZA?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+  >}}
+
+  So there's a tradition in my brain:
+
+  #+BEGIN_QUOTE
+  Whenever you can, rethink your workflow
+  #+END_QUOTE
+
+  Until I truly feel comfortable, I will try to find ways
+  to feel more comfortable working and using things.
+  Namely, here, my computer.
+
+  I tend to do that at the end of the summer.
+
+  I didn't think I'd do it, but I ended up actually installing
+  a new Linux Distribution.
+
+* The end of the Canonical Tyranny!
+  Well, "tyranny". I don't hate Canonical, nor Ubuntu.
+  But I had worked under Ubuntu for years until now,
+  and I wasn't familiar with any other system.
+
+  {{< figure src="/images/unsplash/peter-conlan-687333-unsplash.jpg"
+  title="Enjoying being free from Ubuntu's metaphorical shackles"
+  attr="Photo by Peter Conlan on Unsplash"
+  attrlink="https://unsplash.com/photos/LEgwEaBVGMo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+  >}}
+
+  I decided to go and switch to the other most popular
+  Distribution: [[https://www.archlinux.org/][Arch]]. Now, I now that Arch is pretty bare-bones,
+  and I was still scared of going full-tty and
+  install everything myself. I'm still not well enough versed
+  in the art of handling hardware drivers.
+
+  So I looked for Arch-based distributions, and after considering
+  [[https://antergos.com/][Antergos]], I ended up going for [[https://manjaro.org/][Manjaro]], because of its
+  auto-hardware-driver installer.
+
+  I half-regret this today, because Manjaro comes with a bunch of defaults
+  that I really don't like.
+  Namely, it has a terrible [[https://gitlab.manjaro.org/profiles-and-settings/manjaro-browser-settings][branding override for browsers]].
+  I had to work /against/ it to be able to get my Firefox New Tab as a home page,
+  and get rid of their [[https://manjaro.org/][useless featureless homepage]].
+  It doesn't even have a search engine.
+
+  {{< figure src="/images/unsplash/dorota-dylka-69581-unsplash.jpg"
+  title="Enjoying being soul-bound to Manjaro's absolute rule"
+  attr="Photo by dorota dylka on Unsplash"
+  attrlink="https://unsplash.com/photos/EnsRjlBwQsg?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+  >}}
+
+  The one default that is great, though, is the desktop theme.
+  I'll get back to that after I talk about the desktop itself, though.
+  Which is now.
+
+* I, I, I.
+  Ever since my Windows age, I have been conditioned to use windows.
+  It's all I've known. Those floating frames you can move around and resize with your mouse.
+  But as soon as I started trying to be productive and do stuff with my computers,
+  I ended up maxmizing those frames, and sometimes putting them side to side and
+  clamping them to the edge of the screen.
+
+  {{< figure src="/images/unsplash/john-weinhardt-370286-unsplash.jpg"
+  title="Totally accurate representation of my Ubuntu desktops"
+  attr="Photo by John Weinhardt on Unsplash"
+  attrlink="https://unsplash.com/photos/FZ5nx86tP2U?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+  >}}
+
+  Little did I know, floating frames are not the only way you can manage your desktop!
+  [[https://en.wikipedia.org/wiki/Tiling_window_manager][Tiling windows managers]] have been around since the eighties, even!
+  How did I not know that??
+
+  So, remember when I said [[/posts/kitty-setup/#the-problem][Kitty's internal windows solved a huge problem for me]]?
+  Well now, [[https://i3wm.org/][i3wm]] does it!
+
+  {{< figure src="/images/2018-09-26-212657_1600x900_scrot.png"
+  title="Look at these tiles!!"
+  caption="Spacemacs on the left, Ranger top right, a local hugo server bottom right. A coffee, and you're a pro blogger."
+  >}}
+
+  I don't need Kitty's tiling capacities, as my whole desktop experience is about
+  tiling space into chunks of content. The bonus cool thing about i3 is how easy it is
+  to configure it! I remember growing headaches trying to understand
+  how system keyboard shortcuts worked under gnome and how to edit them
+  outside of the =gnome-settings= app.
+  
+  Well no more!
+  I edit =~/.config/i3/config= and boom!
+  
+  And it's not even complicated!
+  here's how it looks like to bind my nifty Kitty to =Alt+Enter=
+  
+  #+BEGIN_SRC 
+  bindsym Mod1+Return exec kitty
+  #+END_SRC
+
+  How simple is that, really?
+
+* Onigiri 🍙 
+  Now's the moment when I talk about the core of the matter of this post and the ones to come:
+  Rice.
+
+  No, not 🍚, nor 🍙, or even 🍛.
+
+  Rice is a term that I learned recently that apparently means something different to nerds
+  that it does to the rest of the world.
+
+  #+BEGIN_QUOTE
+  Rice.
+    Race Inspired Cosmetic Enhancements
+  #+END_QUOTE
+
+  The term comes from automobile prettifying.
+  That's what we'll be doing, but not with cars, with desktops and workflows.
+
+  {{< figure src="/images/unsplash/daniel-klein-573836-unsplash.jpg"
+  title="Unix desktop farm"
+  attr="Photo by Daniel Klein on Unsplash"
+  attrlink="https://unsplash.com/photos/S5MoFKDh43A?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+  >}} 
+
+  I'll be going through all the steps I'm passing through as I rice my system up,
+  and maybe help you learn a thing or two.
+
+  It will be different than the previous post about Kitty, that had nothing really useful.
+  This time I will dive into the details of what I'm doing and give some visual results.
+  I mean my post about /Kitty being cute/ had no pictures in it. Sad stuff.
+
+  I'll try to step up my figure game when I get back to online-land.
+  If you haven't seen pictures yet, you get a free /Slap The Panda/ coupon.
+
+  Anyway, let's rice this thing up!
+  We'll be looking at i3 config, conky scripts, rofi plugins, theming, all sorts of stuff!
+  Maybe even keyboard layout creation!
+
+  In order for things to be kind of organized, I'll do things one blog post at a time.
+
+  This is all for today. This post is already long enough.
+  Next time we'll be looking at Manjaro-i3's default config and sort out what to change.
+
+  {{< figure src="/images/unsplash/daniel-jensen-440210-unsplash.jpg"
+  title="See you next time!"
+  attr="Photo by Daniel Jensen on Unsplash"
+  attrlink="https://unsplash.com/photos/UDleHDOhBZ8?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+  >}}
